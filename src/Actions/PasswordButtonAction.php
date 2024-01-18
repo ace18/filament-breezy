@@ -25,10 +25,10 @@ class PasswordButtonAction extends Action
                 )
                 ->form([
                     Forms\Components\TextInput::make("current_password")
-                    ->label(__('filament-breezy::default.password_confirm.current_password'))
-                    ->required()
-                    ->password()
-                        ->rule("current_password"),
+                        ->label(__('filament-breezy::default.password_confirm.current_password'))
+                        ->required()
+                        ->password()
+                        ->rule("current_password:" . filament('filament-breezy')->getCurrentPanel()->getAuthGuard()),
                 ]);
         }
     }

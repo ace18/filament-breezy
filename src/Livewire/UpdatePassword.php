@@ -30,7 +30,7 @@ class UpdatePassword extends MyProfileComponent
                     ->label(__('filament-breezy::default.password_confirm.current_password'))
                     ->required()
                     ->password()
-                    ->rule("current_password")
+                    ->rule("current_password:" . filament('filament-breezy')->getCurrentPanel()->getAuthGuard())
                     ->visible(filament('filament-breezy')->getPasswordUpdateRequiresCurrent()),
                 Forms\Components\TextInput::make("new_password")
                     ->label(__('filament-breezy::default.fields.new_password'))
